@@ -13,8 +13,8 @@ module.exports.run = async function({ api, event, Users }) {
 	const { join } = global.nodemodule["path"];
 	const { threadID } = event;
 	if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
-		api.changeNickname(`[ ${global.config.PREFIX} ] • ${(!global.config.BOTNAME) ? "Made by CatalizCS and SpermLord" : global.config.BOTNAME}`, threadID, api.getCurrentUserID());
-		return api.sendMessage(`Kết nối thành công ○~● Sử dụng !help để biết full lệnh của bot|||  !help + tên lệnh để biết chi tiết về lệnh\n-----------------------\n  Bot name : D U C K \n Prefix (dấu lệnh) : ! \n ☡Nghiêm cấm tuyệt đối mọi hành vi spam,report,war bot nếu bị phát hiện sẽ ăn ban vĩnh viễn☡ \n Mọi thắc mắc xin liên hệ fb Admin : https://www.facebook.com/Ducvjp.Admin.2006`, threadID);
+		api.changeNickname(`[ ${global.config.PREFIX} ] • ${(!global.config.BOTNAME) ? "Bypass bởi Mai Huy Bảo" : global.config.BOTNAME}`, threadID, api.getCurrentUserID());
+		return api.sendMessage(`Kết nối thành công\n» Vui lòng không spam lệnh hoặc tag bot khi box đã có bot \n» Cảm Ơn Đã Dùng Bot Của Teri\n»Không được tự ý tag Bot vô group mà ko con phép ý kiến admin/n» Không Biết Sài Thì Dùng Lệnh + Help để xem cách sử dụng.\n» Chửi Bot Xúc Phạm Bot là 1 hành động xàm l*n\n Để gỡ tin nhắn bot: dấu lệnh +  gỡ\n» 𝐋𝐢𝐧𝐤 AMDMIN Bot:\nhttps://www.facebook.com/profile.php?id=100069432743803`, threadID);
 	}
 	else {
 		try {
@@ -23,7 +23,7 @@ module.exports.run = async function({ api, event, Users }) {
 
 			const threadData = global.data.threadData.get(parseInt(threadID)) || {};
 			const path = join(__dirname, "cache", "joinGif");
-			const pathGif = join(path, `chao.gif`);
+			const pathGif = join(path, `f50ccb65687cc14d1d72d8831206c133.gif`);
 
 			var mentions = [], nameArray = [], memLength = [], i = 0;
 			
@@ -41,10 +41,10 @@ module.exports.run = async function({ api, event, Users }) {
 			}
 			memLength.sort((a, b) => a - b);
 			
-			(typeof threadData.customJoin == "undefined") ? msg = "𝐻𝑒𝑙𝑙𝑜 𝑐𝑜𝑛 𝑣𝑜̛̣ {name}.\n𝐶ℎ𝑎̀𝑜 𝑚𝑢̛̀𝑛𝑔 đ𝑎̃ đ𝑒̂́𝑛 𝑣𝑜̛́𝑖 {threadName}.\n{type} 𝑙𝑎̀ 𝑡ℎ𝑎̀𝑛ℎ 𝑣𝑖𝑒̂𝑛 𝑡ℎ𝑢̛́ {soThanhVien} 𝑐𝑢̉𝑎 𝑛ℎ𝑜́𝑚. 𝑇𝑢̛𝑜̛𝑛𝑔 𝑡𝑎́𝑐 𝑛ℎ𝑖𝑒̂̀𝑢 𝑣𝑎̀𝑜 𝑛ℎ𝑎 𝑘ℎ𝑜̂𝑛𝑔 𝑙𝑎̀ 𝑏𝑖̣ 𝑎̆𝑛 𝑘𝑖𝑐𝑘 đ𝑜́ 💜💜💜" : msg = threadData.customJoin;
+			(typeof threadData.customJoin == "undefined") ? msg = "𝑊𝑒𝑙𝑐𝑜𝑚𝑒  {name} 🥳.\Chào mừng bạn đến với {threadName} 🥰.\n{type} là thành viên thứ {soThanhVien} của nhóm 🥳.\nVợ mới nhớ tương tác nha thương" : msg = threadData.customJoin;
 			msg = msg
 			.replace(/\{name}/g, nameArray.join(', '))
-			.replace(/\{type}/g, (memLength.length > 1) ?  '𝑐𝑎́𝑐 𝑏𝑎̣𝑛' : '𝑏𝑎̣𝑛')
+			.replace(/\{type}/g, (memLength.length > 1) ?  'các bạn' : 'bạn')
 			.replace(/\{soThanhVien}/g, memLength.join(', '))
 			.replace(/\{threadName}/g, threadName);
 
